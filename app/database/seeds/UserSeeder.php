@@ -20,7 +20,7 @@ class UserSeeder extends Seeder
                 'country' => $faker->country,
                 'zip_code' => $faker->postcode,
             ));
-            var_dump($user->errors());
+//            var_dump($user->errors());
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }

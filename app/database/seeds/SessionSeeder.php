@@ -16,7 +16,7 @@ class SessionSeeder extends Seeder
                 'start' => $faker->dateTime,
                 'end' => $faker->dateTime,
             ));
-            var_dump($var->errors());
+//            var_dump($var->errors());
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }

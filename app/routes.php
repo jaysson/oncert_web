@@ -24,5 +24,6 @@ Route::group(array('prefix' => 'api/v1'), function () {
         Route::resource('certifications', 'CertificationsController', array('only' => array('index', 'show')));
         Route::resource('sessions', 'SessionsController');
         Route::post('sessions/{id}/join', 'SessionsController@joinSession');
+        Route::resource('attempts', 'AttemptsController',array('only' => array('index','store','update')));
     });
 });
