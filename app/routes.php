@@ -27,4 +27,7 @@ Route::get('join-session/{id}', ['uses' => 'SessionsController@join', 'as' => 'j
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
     Route::resource('certifications', 'CertificationsController');
+    Route::resource('exams', 'ExamsController');
+    Route::resource('exams.questions', 'QuestionsController');
+    Route::resource('exams.questions.answers', 'AnswersController');
 });

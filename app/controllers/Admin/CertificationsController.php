@@ -1,6 +1,6 @@
 <?php
 namespace Admin;
-
+use Input;
 
 class CertificationsController extends \BaseController
 {
@@ -8,13 +8,12 @@ class CertificationsController extends \BaseController
     public function index()
     {
         $certifications = \Certification::paginate(25);
-        dd($certifications);
         return \View::make('admin.certifications.index')->with('certifications', $certifications);
     }
 
     public function create()
     {
-        return \View::make('admin.certifications.create', array('rules' => $this->$rules));
+        return \View::make('admin.certifications.create', array('rules' => \Certification::$rules));
     }
 
     public function store()
@@ -22,8 +21,8 @@ class CertificationsController extends \BaseController
         $formData = \Input::all();
         $certification = new \Certification($formData);
         $certification->save();
-        Notify::info('Certification  ' . Input::get('name') . ' created successfully!');
-        return \Redirect::route('certifications.index');
+        \Notification::info('Certification  ' . Input::get('name') . ' created successfully!');
+        return \Redirect::route('admin.certifications.index');
     }
 
     public function show($id)
@@ -43,15 +42,15 @@ class CertificationsController extends \BaseController
         $certification = \Certification::findOrFail($id);
         $formData = \Input::all();
         $certification->update($formData);
-        Notify::info('Certification  ' . Input::get('name') . ' updated successfully!');
-        return \Redirect::route('certifications.index');
+        \Notification::info('Certification  ' . Input::get('name') . ' updated successfully!');
+        return \Redirect::route('admin.certifications.index');
     }
 
     public function destroy($id)
     {
         $certification = \Certification::findOrFail($id);
         $certification->delete();
-        Notify::info('Certification deleted successfully!');
-        return \Redirect::route('certifications.index');
+        \Notification::info('Certification deleted successfully!');
+        return \Redirect::route('admin.certifications.index');
     }
 }

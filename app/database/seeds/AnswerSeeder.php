@@ -6,6 +6,7 @@ class AnswerSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Answer::truncate();
         $faker = Faker::create();
         $questions = Question::all();
         foreach ($questions as $question) {

@@ -4,7 +4,7 @@
 {{$certification->title}}
 @stop
 
-@section('main')
+@section('content')
 <h1 class="page-header">{{$certification->title}}</h1>
 Title: {{$certification->title}}<br />
 Created At: {{$certification->created_at}}<br />

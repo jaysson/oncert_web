@@ -3,18 +3,18 @@ use LaravelBook\Ardent\Ardent;
 
 class Exam extends Ardent
 {
-    protected $fillable = ['course_id', 'name', 'duration'];
+    protected $fillable = ['certification_id', 'name', 'duration'];
 
     public static $rules = array(
         'certification_id' => 'required|integer|exists:certifications,id',
-        'name' => 'required',
-
+        'name' => 'required'
     );
 
-    public function course()
+    public function certification()
     {
-        return $this->belongsTo('Course');
+        return $this->belongsTo('Certification');
     }
+
 
     public function questions()
     {
