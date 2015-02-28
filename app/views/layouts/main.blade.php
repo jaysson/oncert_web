@@ -25,6 +25,23 @@
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- Content Block Ends Here (right box)-->
+
+    <!-- JQuery v1.9.1 -->
+    {{ HTML::script('js/jquery/jquery-1.9.1.min.js') }}
+    {{ HTML::script('js/plugins/underscore/underscore-min.js') }}
+    <!-- Bootstrap -->
+    {{ HTML::script('js/bootstrap/bootstrap.min.js') }}
+
+    <!-- Globalize -->
+    {{ HTML::script('js/globalize/globalize.min.js') }}
+
+    <!-- NanoScroll -->
+    {{ HTML::script('js/plugins/nicescroll/jquery.nicescroll.min.js') }}
+
+    {{ HTML::script('js/laravel.js') }}
+
+    {{ HTML::script('js/app/custom.js') }}
 </head>
 <body>
 
@@ -49,23 +66,6 @@
     </div>
 
 </section>
-<!-- Content Block Ends Here (right box)-->
-
-<!-- JQuery v1.9.1 -->
-{{ HTML::script('js/jquery/jquery-1.9.1.min.js') }}
-{{ HTML::script('js/plugins/underscore/underscore-min.js') }}
-<!-- Bootstrap -->
-{{ HTML::script('js/bootstrap/bootstrap.min.js') }}
-
-<!-- Globalize -->
-{{ HTML::script('js/globalize/globalize.min.js') }}
-
-<!-- NanoScroll -->
-{{ HTML::script('js/plugins/nicescroll/jquery.nicescroll.min.js') }}
-
-{{ HTML::script('js/laravel.js') }}
-
-{{ HTML::script('js/app/custom.js') }}
 
 </body>
 </html>

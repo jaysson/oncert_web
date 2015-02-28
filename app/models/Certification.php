@@ -14,9 +14,9 @@ class Certification extends Ardent
         return $this->belongsTo('User');
     }
 
-    public function course()
+    public function sessions()
     {
-        return $this->belongsTo('Course');
+        return $this->hasMany('CourseSession');
     }
 
 

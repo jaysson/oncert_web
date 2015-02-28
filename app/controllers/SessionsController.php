@@ -5,7 +5,7 @@ class SessionsController extends BaseController
     public function index($certification_id)
     {
         $certification = Certification::findOrFail($certification_id);
-        return View::make('sessions.index', ['sessions' => $certification->sessions]);
+        return View::make('sessions.index', ['sessions' => $certification->sessions, 'certification' => $certification]);
     }
 
     public function create($certification_id)
@@ -19,9 +19,10 @@ class SessionsController extends BaseController
         $certification = Certification::findOrFail($certification_id);
         $session = new CourseSession();
         $session->certification_id = $certification->id;
+        $session->user_id = Auth::id();
         if ($session->save()) {
             Notification::success('Successfully created session!');
-            return Redirect::route('sessions.index', $certification_id);
+            return Redirect::route('certifications.sessions.index', $certification_id);
         } else {
             return Redirect::back()->withInput()->withErrors($session->errors());
         }
@@ -44,7 +45,7 @@ class SessionsController extends BaseController
         $session = CourseSession::findOrFail($session_id);
         if ($session->save()) {
             Notification::success('Successfully updated session!');
-            return Redirect::route('sessions.index', $certification_id);
+            return Redirect::route('certifications.sessions.index', $certification_id);
         } else {
             return Redirect::back()->withInput()->withErrors($session->errors());
         }
@@ -55,6 +56,14 @@ class SessionsController extends BaseController
         $session = CourseSession::findOrFail($session_id);
         $session->delete();
         Notification::success('Session deleted!');
-        return Redirect::route('sessions.index');
+        return Redirect::route('certifications.sessions.index');
+    }
+
+    public function join($session_id)
+    {
+        $session = CourseSession::findOrFail($session_id);
+        $session->users()->attach(Auth::id());
+        Notification::success('You have successfully joined the session!');
+        return Redirect::back();
     }
 }

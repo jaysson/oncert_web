@@ -1,6 +1,6 @@
 <?php
 
-HTML::macro('navItem', function ($title, $url, $activeSubUrls = false) {
+HTML::macro('navItem', function ($title, $url, $activeSubUrls = true) {
     if (Request::url() === $url || ($activeSubUrls && starts_with(Request::url(), $url))) {
         $class = ' class="active"';
     } else {

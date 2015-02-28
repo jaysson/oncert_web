@@ -22,8 +22,9 @@ Route::group(array('prefix' => 'api/v1'), function () {
 Route::get('dashboard', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
 Route::resource('certifications', 'CertificationsController', ['only' => ['index', 'show']]);
 Route::resource('certifications.sessions', 'SessionsController');
+Route::get('join-session/{id}', ['uses' => 'SessionsController@join', 'as' => 'join-session']);
 
-Route::group(array('prefix' => 'admin','namespace' => 'Admin'), function () {
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
     Route::resource('certifications', 'CertificationsController');
 });
