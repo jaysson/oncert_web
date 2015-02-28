@@ -1,0 +1,2 @@
+php $OPENSHIFT_REPO_DIR/artisan migrate
+php $OPENSHIFT_REPO_DIR/artisan db:seed
