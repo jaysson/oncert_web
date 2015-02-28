@@ -15,8 +15,8 @@ class CreateAttachmentsTable extends Migration {
 		Schema::create('attachments', function(Blueprint $table)
 		{
 			$table->increments('id');
-            $table->integer('course_session_id')->unsigned();
-            $table->foreign('course_session_id')->references('id')->on('course_sessions')->onDelete('cascade');
+            $table->integer('session_id')->unsigned();
+            $table->foreign('session_id')->references('id')->on('sessions')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

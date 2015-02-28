@@ -16,18 +16,13 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
     protected $fillable = ['name', 'email', 'password', 'address_1', 'address_2', 'city', 'state', 'country', 'zip_code', 'contact_number', 'profile_picture', 'id_proof'];
 
     public static $rules = array(
-        'name' => 'required|between:4,16',
+        'name' => 'required',
         'email' => 'required|email',
-        'password' => 'required|alpha_num|between:4,8|confirmed',
-        'password_confirmation' => 'required|alpha_num|between:4,8',
+        'password' => 'required',
         'address_1' => 'required',
         'city' => 'required',
-        'state' => 'required',
         'country' => 'required',
-        'zip_code' => 'required',
-        'contact_number' => 'required',
-        'profile_picture' => 'image',
-        'id_proof' => 'image',
+        'zip_code' => 'required'
 
     );
 
@@ -77,15 +72,9 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
      * @var array
      */
     protected $hidden = array('password', 'remember_token');
-
-    /**
-     * Get the e-mail address where password reminders are sent.
-     *
-     * @return string
-     */
-    public function course()
+    public function sessions()
     {
-        return $this->belongsToMany('Course');
+        return $this->belongsToMany('CourseSession','session_user');
     }
 
     public function role()
@@ -101,10 +90,5 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
     public function exam()
     {
         return $this->belongsToMany('Exam');
-    }
-
-    public function course_session()
-    {
-        return $this->belongsToMany('CourseSession');
     }
 }

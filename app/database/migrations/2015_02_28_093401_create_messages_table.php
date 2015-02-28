@@ -16,10 +16,10 @@ class CreateMessagesTable extends Migration {
 		{
 			$table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->integer('course_session_id')->unsigned();
+            $table->integer('session_id')->unsigned();
             $table->text('message');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('course_session_id')->references('id')->on('course_sessions')->onDelete('cascade');
+            $table->foreign('session_id')->references('id')->on('sessions')->onDelete('cascade');
 			$table->timestamps();
 		});
 	}

@@ -3,10 +3,9 @@ use LaravelBook\Ardent\Ardent;
 
 class Certification extends Ardent
 {
-    protected $fillable = ['title', 'course_id'];
+    protected $fillable = ['title'];
 
     public static $rules = array(
-        'course_id' => 'required|integer|exists:courses,id',
         'title' => 'required'
     );
 

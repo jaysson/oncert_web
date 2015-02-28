@@ -20,4 +20,9 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('login', 'Api\AuthController@login');
     Route::post('register', 'Api\AuthController@registration');
     Route::delete('logout', 'Api\AuthController@logout');
+    Route::group(array('namespace' => 'Api', 'before' => 'auth.token'), function () {
+        Route::resource('certifications', 'CertificationsController', array('only' => array('index', 'show')));
+        Route::resource('sessions', 'SessionsController');
+        Route::post('sessions/{id}/join', 'SessionsController@joinSession');
+    });
 });
