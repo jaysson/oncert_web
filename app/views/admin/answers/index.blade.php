@@ -23,7 +23,7 @@ Answer
             <td>{{ $answer->correct }}</td>
             <td>
                 <a class="btn btn-small btn-warning" href="{{ URL::route('admin.exams.questions.answers.edit', array($question->exam_id,$question->id,$answer->id))}}">Edit</a>
-                <a class="btn btn-small btn-danger" href="{{ URL::route('admin.exams.questions.destroy', $answer->id) }}" data-method="delete" data-confirm="Are you sure?">Delete</a>
+                <a class="btn btn-small btn-danger" href="{{ URL::route('admin.exams.questions.answers.destroy', array($question->exam_id,$question->id,$answer->id)) }}" data-method="delete" data-confirm="Are you sure?">Delete</a>
             </td>
         </tr>
     @endforeach

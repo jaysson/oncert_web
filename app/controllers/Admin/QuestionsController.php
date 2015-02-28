@@ -11,7 +11,7 @@ class QuestionsController extends \BaseController
     public function index($exam_id)
     {
         $questions = \Question::paginate(25);
-        return \View::make('admin.questions.index', array('questions' => $questions));
+        return \View::make('admin.questions.index', array('questions' => $questions,'exam_id'=>$exam_id));
     }
 
     public function create($exam_id)
@@ -32,13 +32,13 @@ class QuestionsController extends \BaseController
     public function show($exam_id, $id)
     {
         $question = \Question::findOrFail($id);
-        return \View::make('admin.questions..show', array('question' => $question));
+        return \View::make('admin.questions.show', array('question' => $question));
     }
 
     public function edit($exam_id, $id)
     {
         $question = \Question::findOrFail($id);
-        return \View::make('admin.questions..edit', array('question' => $question));
+        return \View::make('admin.questions.edit', array('question' => $question));
     }
 
     public function update($exam_id, $id)

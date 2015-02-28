@@ -58,6 +58,6 @@ class AnswersController extends \BaseController
         $answer = \Answer::findOrFail($id);
         $answer->delete();
         \Notification::info('Answer deleted successfully!');
-        return \Redirect::route('admin.answers.index');
+        return \Redirect::route('admin.exams.questions.answers.index',array($exam_id, $question_id));
     }
 }

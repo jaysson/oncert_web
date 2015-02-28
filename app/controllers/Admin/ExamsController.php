@@ -31,14 +31,14 @@ class ExamsController  extends \BaseController
     public function show($id)
     {
         $exam = \Exam::findOrFail($id);
-        return \View::make('admin.exams..show', array('exam' => $exam));
+        return \View::make('admin.exams.show', array('exam' => $exam));
     }
 
     public function edit($id)
     {
         $certifications = array('' => 'Select Certification Name') + \Certification::lists('title', 'id');
         $exam = \Exam::findOrFail($id);
-        return \View::make('admin.exams..edit', array('exam' => $exam,'certifications' => $certifications));
+        return \View::make('admin.exams.edit', array('exam' => $exam,'certifications' => $certifications));
     }
 
     public function update($id)
