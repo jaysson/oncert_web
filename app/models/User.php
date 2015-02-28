@@ -17,13 +17,8 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
 
     public static $rules = array(
         'name' => 'required',
-        'email' => 'required|email',
-        'password' => 'required',
-        'address_1' => 'required',
-        'city' => 'required',
-        'country' => 'required',
-        'zip_code' => 'required'
-
+        'email' => 'required|email|unique:users,email',
+        'password' => 'required'
     );
 
 
@@ -75,11 +70,6 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
     public function sessions()
     {
         return $this->belongsToMany('CourseSession','session_user');
-    }
-
-    public function role()
-    {
-        return $this->belongsToMany('Role');
     }
 
     public function certification()

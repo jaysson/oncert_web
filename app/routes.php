@@ -1,20 +1,11 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Application Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register all of the routes for an application.
-| It's a breeze. Simply tell Laravel the URIs it should respond to
-| and give it the Closure to execute when that URI is requested.
-|
-*/
-
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+Route::get('/', 'HomeController@show');
+Route::get('register', array('as' => 'register.page', 'uses' => 'AuthController@register'));
+Route::post('register', array('as' => 'register', 'uses' => 'AuthController@processRegister'));
+Route::get('login', array('as' => 'login.page', 'uses' => 'AuthController@login'));
+Route::post('login', array('as' => 'login', 'uses' => 'AuthController@processLogin'));
+Route::get('logout', array('as' => 'logout', 'uses' => 'AuthController@logout'));
 
 Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('login', 'Api\AuthController@login');
@@ -27,3 +18,6 @@ Route::group(array('prefix' => 'api/v1'), function () {
         Route::resource('attempts', 'AttemptsController',array('only' => array('index','store','update')));
     });
 });
+
+Route::get('dashboard', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
+Route::resource('certifications', 'CertificationsController');

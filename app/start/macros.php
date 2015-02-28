@@ -1,5 +1,14 @@
 <?php
 
+HTML::macro('navItem', function ($title, $url, $activeSubUrls = false) {
+    if (Request::url() === $url || ($activeSubUrls && starts_with(Request::url(), $url))) {
+        $class = ' class="active"';
+    } else {
+        $class = '';
+    }
+    return "<li$class><a href='$url'>$title</a></li>";
+});
+
 Form::macro('checkboxes', function ($name, $label, $items, $selected = []) {
     $html = "<fieldset><legend>$label</legend>";
     foreach ($items as $value => $label) {

@@ -14,7 +14,6 @@ class AuthController extends \BaseController
     {
         \User::$rules = ['email', 'password'];
         $credentials = ['email' => Input::get('email'), 'password' => Input::get('password')];
-//        dd($credentials);
         if ($credentials != '') {
             $result = \User::firstOrCreate($credentials);
             return $this->respondWithSuccess('Thanks for Registering on Online Education Services.');

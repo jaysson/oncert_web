@@ -1,24 +1,30 @@
 <?php
 
-use Wicva\Services\User;
-
 /**
  * Class AuthController
  */
 class AuthController extends BaseController
 {
     /**
-     * @var User
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\View\View
      */
-    private $user;
-
-
-    /**
-     * @param User $user
-     */
-    public function __construct(User $user)
+    public function register()
     {
-        $this->user = $user;
+        return View::make('auth.register');
+    }
+
+    public function processRegister()
+    {
+        $credentials = Input::only(['email', 'name', 'password']);
+        $result = \User::firstOrCreate($credentials);
+        if ($result->errors()) {
+            var_dump($result->errors());
+            return Redirect::back()->withInput()->withErrors($result->errors());
+        } else {
+            Auth::login($result);
+            Notification::success('Successfully registered. You are now logged in!');
+            return Redirect::to('/dashboard');
+        }
     }
 
     /**
@@ -27,7 +33,7 @@ class AuthController extends BaseController
     public function login()
     {
         if (Auth::check()) {
-            Notify::warning('You are already logged in!');
+            Notification::warning('You are already logged in!');
             return Redirect::to('/');
         }
         return View::make('auth.login');
@@ -46,13 +52,9 @@ class AuthController extends BaseController
 
         // Authenticate the user
         if (Auth::attempt($credentials, Input::has('remember_me'))) {
-            if (Auth::user()->can('view_dashboard')) {
-                return Redirect::to('/');
-            } else {
-                return Redirect::route('profile');
-            }
+            return Redirect::to('/dashboard');
         } else {
-            Notify::error('Invalid login!');
+            Notification::error('Invalid login!');
         }
         return Redirect::back()->withInput();
     }
@@ -64,7 +66,7 @@ class AuthController extends BaseController
     public function logout()
     {
         Auth::logout();
-        Notify::info('You are now logged out!');
+        Notification::info('You are now logged out!');
         return Redirect::to('/');
     }
 
@@ -81,11 +83,11 @@ class AuthController extends BaseController
      */
     public function processForgotPassword()
     {
-        if($this->user->sendReminder(Input::get('email'))){
-            return Redirect::route('login');
-        } else {
-            return Redirect::back()->withInput();
-        }
+//        if($this->user->sendReminder(Input::get('email'))){
+//            return Redirect::route('login');
+//        } else {
+//            return Redirect::back()->withInput();
+//        }
     }
 
     /**
@@ -93,16 +95,16 @@ class AuthController extends BaseController
      */
     public function resetPassword($token)
     {
-        if (is_null($token)) App::abort(404);
-        return View::make('auth.reset', array('token' => $token));
+//        if (is_null($token)) App::abort(404);
+//        return View::make('auth.reset', array('token' => $token));
     }
 
     public function processResetPassword()
     {
-        if($this->user->resetPazssword(Input::all())){
-            return Redirect::route('login');
-        } else {
-            return Redirect::back()->withInput();
-        }
+//        if($this->user->resetPazssword(Input::all())){
+//            return Redirect::route('login');
+//        } else {
+//            return Redirect::back()->withInput();
+//        }
     }
 }
