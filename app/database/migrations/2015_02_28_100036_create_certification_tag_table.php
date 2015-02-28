@@ -12,7 +12,7 @@ class CreateCertificationTagTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('course_tag', function(Blueprint $table)
+		Schema::create('certification_tag', function(Blueprint $table)
 		{
 			$table->increments('id');
 			$table->integer('certification_id')->unsigned()->index();
@@ -23,7 +23,6 @@ class CreateCertificationTagTable extends Migration {
 		});
 	}
 
-
 	/**
 	 * Reverse the migrations.
 	 *
@@ -31,7 +30,7 @@ class CreateCertificationTagTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('course_tag');
+		Schema::drop('certification_tag');
 	}
 
 }

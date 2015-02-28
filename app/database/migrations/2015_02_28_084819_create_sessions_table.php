@@ -17,7 +17,7 @@ class CreateSessionsTable extends Migration {
 			$table->increments('id');
             $table->string('title');
             $table->integer('certification_id')->unsigned()->index();
-            $table->integer('user_id')->unsigned()->index();
+            $table->integer('user_id')->unsigned();
             $table->dateTime('start');
             $table->dateTime('end');
             $table->enum('status',array(1,0))->default(1);

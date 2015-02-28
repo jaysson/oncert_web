@@ -14,10 +14,10 @@ class AddAttachmentFieldsToAttachmentsTable extends Migration {
     {   
         Schema::table('attachments', function(Blueprint $table) {     
             
-            $table->string('attachment_file_name')->nullable();
-            $table->integer('attachment_file_size')->nullable();
-            $table->string('attachment_content_type')->nullable();
-            $table->timestamp('attachment_updated_at')->nullable();
+            $table->string('file_file_name')->nullable();
+            $table->integer('file_file_size')->nullable();
+            $table->string('file_content_type')->nullable();
+            $table->timestamp('file_updated_at')->nullable();
 
         });
 
@@ -32,10 +32,10 @@ class AddAttachmentFieldsToAttachmentsTable extends Migration {
     {
         Schema::table('attachments', function(Blueprint $table) {
 
-            $table->dropColumn('attachment_file_name');
-            $table->dropColumn('attachment_file_size');
-            $table->dropColumn('attachment_content_type');
-            $table->dropColumn('attachment_updated_at');
+            $table->dropColumn('file_file_name');
+            $table->dropColumn('file_file_size');
+            $table->dropColumn('file_content_type');
+            $table->dropColumn('file_updated_at');
 
         });
     }
