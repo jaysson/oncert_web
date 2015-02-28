@@ -14,7 +14,9 @@ class DatabaseSeeder extends Seeder {
         //$this->call('UserSeeder');
         //$this->call('CertificationSeeder');
         //$this->call('ExamSeeder');
-        $this->call('SessionSeeder');
+        //$this->call('SessionSeeder');
+        //$this->call('QuestionSeeder');
+       // $this->call('AnswerSeeder');
 	}
 
 }
