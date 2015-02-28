@@ -6,6 +6,7 @@ class ExamSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        Exam::truncate();
         $faker = Faker::create();
         foreach (range(1, 10) as $index) {
             Exam::create(array(

@@ -9,6 +9,7 @@ class UserSeeder extends Seeder
         $faker = Faker::create();
         $faker->addProvider(new Image($faker));
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        User::truncate();
         $faker = Faker::create();
         foreach (range(1, 10) as $index) {
             $user = User::create(array(

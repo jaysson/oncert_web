@@ -16,7 +16,7 @@ class DatabaseSeeder extends Seeder {
         $this->call('SessionSeeder');
         $this->call('QuestionSeeder');
         $this->call('AnswerSeeder');
-        $this->call('AttemptSeeder');
+//        $this->call('AttemptSeeder');
 	}
 
 }

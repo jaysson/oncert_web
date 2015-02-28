@@ -14,10 +14,8 @@ class AttemptSeeder extends Seeder
                 'start' => $faker->dateTime,
                 'end' => $faker->dateTime
             ));
-            var_dump($attempt->errors());
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1');
     }
-
 
 }

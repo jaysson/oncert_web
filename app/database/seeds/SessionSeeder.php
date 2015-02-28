@@ -7,6 +7,7 @@ class SessionSeeder extends Seeder
     public function run()
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0');
+        CourseSession::truncate();
         $faker = Faker::create();
         foreach (range(1, 10) as $index) {
            $var =  CourseSession::create(array(
