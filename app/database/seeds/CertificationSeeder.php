@@ -11,6 +11,7 @@ class CertificationSeeder extends Seeder
         foreach (range(1, 10) as $index) {
             Certification::create(array(
                 'title' => $faker->sentence(),
+                'description' => '<p>' . implode('</p><p>', $faker->paragraphs()) . '</p>'
             ));
         }
         DB::statement('SET FOREIGN_KEY_CHECKS=1');

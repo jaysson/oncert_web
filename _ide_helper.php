@@ -390,7 +390,7 @@ namespace {
         }
         
         /**
-         * Prepare the request by injecting any Services.
+         * Prepare the request by injecting any services.
          *
          * @param \Illuminate\Http\Request $request
          * @return \Illuminate\Http\Request 
@@ -542,7 +542,7 @@ namespace {
         }
         
         /**
-         * Set the application's deferred Services.
+         * Set the application's deferred services.
          *
          * @param array $services
          * @return void 
@@ -12310,6 +12310,181 @@ namespace {
     }
 
 
+    class Notification extends \Krucas\Notification\Facades\Notification{
+        
+        /**
+         * Return name of default container.
+         *
+         * @return string 
+         * @static 
+         */
+        public static function getDefaultContainerName(){
+            return \Krucas\Notification\Notification::getDefaultContainerName();
+        }
+        
+        /**
+         * Set types for a container.
+         *
+         * @param $container
+         * @param array $types
+         * @return \Krucas\Notification\Notification 
+         * @static 
+         */
+        public static function setContainerTypes($container, $types = array()){
+            return \Krucas\Notification\Notification::setContainerTypes($container, $types);
+        }
+        
+        /**
+         * Return types for a container.
+         *
+         * @param $container
+         * @return array 
+         * @static 
+         */
+        public static function getContainerTypes($container){
+            return \Krucas\Notification\Notification::getContainerTypes($container);
+        }
+        
+        /**
+         * Set format for a container.
+         *
+         * @param $container
+         * @param null $format
+         * @return \Krucas\Notification\Notification 
+         * @static 
+         */
+        public static function setContainerFormat($container, $format = null){
+            return \Krucas\Notification\Notification::setContainerFormat($container, $format);
+        }
+        
+        /**
+         * Return format for a container.
+         *
+         * @param $container
+         * @return string|null 
+         * @static 
+         */
+        public static function getContainerFormat($container){
+            return \Krucas\Notification\Notification::getContainerFormat($container);
+        }
+        
+        /**
+         * Set formats for a container.
+         *
+         * @param $container
+         * @param array $formats
+         * @return \Krucas\Notification\Notification 
+         * @static 
+         */
+        public static function setContainerFormats($container, $formats = array()){
+            return \Krucas\Notification\Notification::setContainerFormats($container, $formats);
+        }
+        
+        /**
+         * Return formats for a container.
+         *
+         * @param $container
+         * @return array 
+         * @static 
+         */
+        public static function getContainerFormats($container){
+            return \Krucas\Notification\Notification::getContainerFormats($container);
+        }
+        
+        /**
+         * Add new container.
+         *
+         * @param $container
+         * @param array $types
+         * @param null $defaultFormat
+         * @param array $formats
+         * @return \Krucas\Notification\Notification 
+         * @static 
+         */
+        public static function addContainer($container, $types = array(), $defaultFormat = null, $formats = array()){
+            return \Krucas\Notification\Notification::addContainer($container, $types, $defaultFormat, $formats);
+        }
+        
+        /**
+         * Return array of available containers.
+         *
+         * @return array 
+         * @static 
+         */
+        public static function getContainers(){
+            return \Krucas\Notification\Notification::getContainers();
+        }
+        
+        /**
+         * Returns container instance.
+         *
+         * @param null $container
+         * @param callable $callback
+         * @return mixed 
+         * @static 
+         */
+        public static function container($container = null, $callback = null){
+            return \Krucas\Notification\Notification::container($container, $callback);
+        }
+        
+        /**
+         * Create new message instance.
+         *
+         * @param null $message
+         * @return \Krucas\Notification\Message 
+         * @static 
+         */
+        public static function message($message = null){
+            return \Krucas\Notification\Notification::message($message);
+        }
+        
+        /**
+         * Fire given event.
+         *
+         * @param $event
+         * @param \Krucas\Notification\NotificationsBag $notificationBag
+         * @param \Krucas\Notification\Message $message
+         * @return array|bool|null 
+         * @static 
+         */
+        public static function fire($event, $notificationBag, $message){
+            return \Krucas\Notification\Notification::fire($event, $notificationBag, $message);
+        }
+        
+        /**
+         * Get the event dispatcher instance.
+         *
+         * @return \Illuminate\Events\Dispatcher 
+         * @static 
+         */
+        public static function getEventDispatcher(){
+            return \Krucas\Notification\Notification::getEventDispatcher();
+        }
+        
+        /**
+         * Set the event dispatcher instance.
+         *
+         * @param \Illuminate\Events\Dispatcher $dispatcher
+         * @return void 
+         * @static 
+         */
+        public static function setEventDispatcher($dispatcher){
+            \Krucas\Notification\Notification::setEventDispatcher($dispatcher);
+        }
+        
+        /**
+         * Unset the event dispatcher for models.
+         *
+         * @return void 
+         * @static 
+         */
+        public static function unsetEventDispatcher(){
+            \Krucas\Notification\Notification::unsetEventDispatcher();
+        }
+        
+    }
+
+
     class Former extends \Former\Facades\Former{
         
         /**
@@ -12957,6 +13132,95 @@ namespace {
         public static function offsetUnset($key){
             //Method inherited from \DebugBar\DebugBar            
             return \Barryvdh\Debugbar\LaravelDebugbar::offsetUnset($key);
+        }
+        
+    }
+
+
+    class Entrust extends \Zizaco\Entrust\EntrustFacade{
+        
+        /**
+         * Checks if the current user has a Role by its name
+         *
+         * @param string $name Role name.
+         * @return bool 
+         * @static 
+         */
+        public static function hasRole($permission){
+            return \Zizaco\Entrust\Entrust::hasRole($permission);
+        }
+        
+        /**
+         * Check if the current user has a permission by its name
+         *
+         * @param string $permission Permission string.
+         * @return bool 
+         * @static 
+         */
+        public static function can($permission){
+            return \Zizaco\Entrust\Entrust::can($permission);
+        }
+        
+        /**
+         * Get the currently authenticated user or null.
+         *
+         * @return \Zizaco\Entrust\User|null 
+         * @static 
+         */
+        public static function user(){
+            return \Zizaco\Entrust\Entrust::user();
+        }
+        
+        /**
+         * Filters a route for the name Role.
+         * 
+         * If the third parameter is null then return 403.
+         * Overwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $roles The role(s) needed.
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $cumulative Must have all roles.
+         * @return mixed 
+         * @static 
+         */
+        public static function routeNeedsRole($route, $roles, $result = null, $cumulative = true){
+            return \Zizaco\Entrust\Entrust::routeNeedsRole($route, $roles, $result, $cumulative);
+        }
+        
+        /**
+         * Filters a route for the permission.
+         * 
+         * If the third parameter is null then return 403.
+         * Overwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $permissions The permission needed.
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $cumulative Must have all permissions
+         * @return mixed 
+         * @static 
+         */
+        public static function routeNeedsPermission($route, $permissions, $result = null, $cumulative = true){
+            return \Zizaco\Entrust\Entrust::routeNeedsPermission($route, $permissions, $result, $cumulative);
+        }
+        
+        /**
+         * Filters a route for the permission.
+         * 
+         * If the third parameter is null then return 403.
+         * Overwise the $result is returned.
+         *
+         * @param string $route Route pattern. i.e: "admin/*"
+         * @param array|string $roles The role(s) needed.
+         * @param array|string $permissions The permission needed.
+         * @param mixed $result i.e: Redirect::to('/')
+         * @param bool $cumulative Must have all permissions
+         * @return void 
+         * @static 
+         */
+        public static function routeNeedsRoleOrPermission($route, $roles, $permissions, $result = null, $cumulative = false){
+            \Zizaco\Entrust\Entrust::routeNeedsRoleOrPermission($route, $roles, $permissions, $result, $cumulative);
         }
         
     }

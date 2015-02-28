@@ -1,10 +1,27 @@
 @extends('layouts.main')
 
 @section('title')
-    Summary
+    Certifications
 @stop
 
 @section('content')
-    <h1>Welcome to Oncert!</h1>
-    <p>Find certifications, get trained, take exams and get certified!</p>
+    <h1>Certifications</h1>
+    <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach($certifications as $certification)
+            <tr>
+                <td>{{ $certification->title }}</td>
+                <td>{{ link_to_route('certifications.show', 'Details', $certification->id) }}</td>
+                <td>{{ link_to_route('certifications.sessions.index', 'Sessions', $certification->id) }}</td>
+                <td>{{ link_to_route('certifications.sessions.create', 'Take Session', $certification->id) }}</td>
+            </tr>
+        @endforeach
+        </tbody>
+    </table>
 @stop

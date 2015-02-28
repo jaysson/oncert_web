@@ -34,7 +34,7 @@
         <ul class="list-unstyled">
             {{ HTML::navItem('<i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span>', route('dashboard')) }}
             {{ HTML::navItem('<i class="fa fa-power-off"></i><span class="nav-label">Logout</span>', route('logout')) }}
-            {{ HTML::navItem('<i class="fa fa-power-off"></i><span class="nav-label"></span>', route('certifications.index')) }}
+            {{ HTML::navItem('<i class="fa fa-certificate"></i><span class="nav-label">Certifications</span>', route('certifications.index')) }}
         </ul>
     </nav>
 

@@ -15,9 +15,10 @@ Route::group(array('prefix' => 'api/v1'), function () {
         Route::resource('certifications', 'CertificationsController', array('only' => array('index', 'show')));
         Route::resource('sessions', 'SessionsController');
         Route::post('sessions/{id}/join', 'SessionsController@joinSession');
-        Route::resource('attempts', 'AttemptsController',array('only' => array('index','store','update')));
+        Route::resource('attempts', 'AttemptsController', array('only' => array('index', 'store', 'update')));
     });
 });
 
 Route::get('dashboard', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
-Route::resource('certifications', 'CertificationsController');
+Route::resource('certifications', 'CertificationsController', ['only' => ['index', 'show']]);
+Route::resource('certifications.sessions', 'SessionsController');
