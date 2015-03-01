@@ -31,6 +31,7 @@ Route::group(['before' => 'auth'], function () {
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
     Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'admin.dashboard']);
     Route::resource('certifications', 'CertificationsController');
+    Route::resource('users', 'UsersController');
     Route::resource('exams', 'ExamsController');
     Route::resource('exams.questions', 'QuestionsController');
     Route::resource('exams.questions.answers', 'AnswersController');

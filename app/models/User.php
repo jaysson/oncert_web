@@ -48,7 +48,7 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
                 'thumbnail' => '240x180#',
                 'small' => '120x90'
             ],
-            'url' => '/images/id_proof/:id.:extension',
+            'url' => '/images/id-proof/:id.:extension',
         ]);
 
         parent::__construct($attributes);
