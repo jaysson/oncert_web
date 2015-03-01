@@ -26,9 +26,10 @@ Route::group(['before' => 'auth'], function () {
     Route::get('join-session/{id}', ['uses' => 'SessionsController@join', 'as' => 'join-session']);
     Route::resource('certifications.exams', 'ExamsController', ['only' => ['index']]);
     Route::resource('certifications.exams.attempts', 'AttemptsController', ['except' => ['delete', 'create']]);
+    Route::resource('certifications.sessions.attachments', 'AttachmentController', ['only' => 'store']);
 });
 
-Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
+Route::group(array('prefix' => 'admin', 'namespace' => 'Admin', 'before' => 'auth'), function () {
     Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'admin.dashboard']);
     Route::resource('certifications', 'CertificationsController');
     Route::resource('users', 'UsersController');

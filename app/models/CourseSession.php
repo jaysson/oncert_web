@@ -27,6 +27,11 @@ class CourseSession extends Ardent
         return $this->hasMany('Message');
     }
 
+    public function attachments()
+    {
+        return $this->hasMany('Attachment', 'session_id');
+    }
+
     public function users()
     {
         return $this->belongsToMany('User', 'session_user', 'session_id');

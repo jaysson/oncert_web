@@ -40,7 +40,7 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
                 'thumbnail' => '240x180#',
                 'small' => '120x90'
             ],
-            'url' => '/images/profile-picture/:id.:extension',
+            'url' => '/images/profile-picture/:id/:style.:extension',
         ]);
 
         $this->hasAttachedFile('id_proof', [
@@ -48,7 +48,7 @@ class User extends Ardent implements UserInterface, RemindableInterface, Stapler
                 'thumbnail' => '240x180#',
                 'small' => '120x90'
             ],
-            'url' => '/images/id-proof/:id.:extension',
+            'url' => '/images/id-proof/:id/:style.:extension',
         ]);
 
         parent::__construct($attributes);
