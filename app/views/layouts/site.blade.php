@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Agency - Start Bootstrap Theme</title>
+    <title>OnCert</title>
 
     <!-- Bootstrap Core CSS -->
     {{ HTML::style('css/bootstrap.min.css') }}
