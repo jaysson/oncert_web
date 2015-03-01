@@ -2,15 +2,23 @@
 
 class SessionsController extends BaseController
 {
+    public function __construct(){
+        Breadcrumbs::addCrumb('Dashboard', '/');
+        Breadcrumbs::addCrumb('Certifications', route('certifications.index'));
+
+    }
     public function index($certification_id)
     {
         $certification = Certification::findOrFail($certification_id);
+        Breadcrumbs::addCrumb('Sessions', route('certifications.sessions.index', $certification_id));
         return View::make('sessions.index', ['sessions' => $certification->sessions, 'certification' => $certification]);
     }
 
     public function create($certification_id)
     {
         $certification = Certification::findOrFail($certification_id);
+        Breadcrumbs::addCrumb('Sessions', route('certifications.sessions.index', $certification_id));
+        Breadcrumbs::addCrumb('Create Session', route('certifications.sessions.create', $certification_id));
         return View::make('sessions.create', ['certification' => $certification]);
     }
 
@@ -31,12 +39,16 @@ class SessionsController extends BaseController
     public function show($certification_id, $session_id)
     {
         $session = CourseSession::findOrFail($session_id);
+        Breadcrumbs::addCrumb('Sessions', route('certifications.sessions.index', $certification_id));
+        Breadcrumbs::addCrumb('Create Session', route('certifications.sessions.show', $certification_id, $session_id));
         return View::make('sessions.show', ['session' => $session]);
     }
 
     public function edit($certification_id, $session_id)
     {
         $session = CourseSession::findOrFail($session_id);
+        Breadcrumbs::addCrumb('Sessions', route('certifications.sessions.index', $certification_id));
+        Breadcrumbs::addCrumb('Edit Session', route('certifications.sessions.edit', $certification_id, $session_id));
         return View::make('sessions.edit', ['session' => $session]);
     }
 

@@ -128,7 +128,8 @@ return array(
         'Codesleeve\LaravelStapler\LaravelStaplerServiceProvider',
         'Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider',
         'Barryvdh\Debugbar\ServiceProvider',
-        'Krucas\Notification\NotificationServiceProvider'
+        'Krucas\Notification\NotificationServiceProvider',
+        'Creitive\Breadcrumbs\BreadcrumbsServiceProvider',
 
     ),
 
@@ -200,6 +201,7 @@ return array(
         'Former' => 'Former\Facades\Former',
         'Debugbar' => 'Barryvdh\Debugbar\Facade',
         'Entrust' => 'Zizaco\Entrust\EntrustFacade',
+        'Breadcrumbs' => 'Creitive\Breadcrumbs\Facades\Breadcrumbs',
 
     ),
 

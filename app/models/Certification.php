@@ -19,5 +19,10 @@ class Certification extends Ardent
         return $this->hasMany('CourseSession');
     }
 
+    public function exams()
+    {
+        return $this->hasMany('Exam');
+    }
+
 
 }

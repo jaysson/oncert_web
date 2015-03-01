@@ -32,7 +32,7 @@
     {{ HTML::image('images/logo.png', null, ['class' => 'img-responsive']) }}
     <nav class="navigation">
         <ul class="list-unstyled">
-            {{ HTML::navItem('<i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span>', '/admin') }}
+            {{ HTML::navItem('<i class="fa fa-bookmark-o"></i><span class="nav-label">Dashboard</span>', route('admin.dashboard'), false) }}
             {{ HTML::navItem('<i class="fa fa-power-off"></i><span class="nav-label">Logout</span>', route('logout')) }}
             {{ HTML::navItem('<i class=""></i><span class="nav-label">Certifications</span>', route('admin.certifications.index')) }}
             {{ HTML::navItem('<i class=""></i><span class="nav-label">Exams</span>', route('admin.exams.index')) }}
@@ -43,7 +43,9 @@
 <!-- Aside Ends-->
 
 <section class="content">
-
+    <header class="top-head container-fluid">
+        {{ Breadcrumbs::render() }}
+    </header>
     <div class="wrapper container-fluid">
         {{ Notification::showAll() }}
         @yield('content')

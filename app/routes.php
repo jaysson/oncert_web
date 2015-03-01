@@ -19,13 +19,17 @@ Route::group(array('prefix' => 'api/v1'), function () {
     });
 });
 
-Route::get('dashboard', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
-Route::resource('certifications', 'CertificationsController', ['only' => ['index', 'show']]);
-Route::resource('certifications.sessions', 'SessionsController');
-Route::get('join-session/{id}', ['uses' => 'SessionsController@join', 'as' => 'join-session']);
+Route::group(['before' => 'auth'], function () {
+    Route::get('dashboard', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
+    Route::resource('certifications', 'CertificationsController', ['only' => ['index', 'show']]);
+    Route::resource('certifications.sessions', 'SessionsController');
+    Route::get('join-session/{id}', ['uses' => 'SessionsController@join', 'as' => 'join-session']);
+    Route::resource('certifications.exams', 'ExamsController', ['only' => ['index']]);
+    Route::resource('certifications.exams.attempts', 'AttemptsController', ['except' => ['delete', 'create']]);
+});
 
 Route::group(array('prefix' => 'admin', 'namespace' => 'Admin'), function () {
-    Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'dashboard']);
+    Route::get('/', ['uses' => 'DashboardController@show', 'as' => 'admin.dashboard']);
     Route::resource('certifications', 'CertificationsController');
     Route::resource('exams', 'ExamsController');
     Route::resource('exams.questions', 'QuestionsController');

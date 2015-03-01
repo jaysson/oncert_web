@@ -10,8 +10,6 @@ class Attempt extends Ardent
         'exam_id' => 'required|integer|exists:exams,id',
         'user_id' => 'required|integer|exists:users,id',
         'start' => 'required',
-        'end' => 'required'
-
     );
 
     public function exam()
@@ -38,6 +36,21 @@ class Attempt extends Ardent
             'end' => $this->end,
             'questions' => $this->exam->questions
         );
+    }
+
+    public function getCorrectAttribute()
+    {
+        return $this->answers()->where('answers.correct', 1)->count();
+    }
+
+    public function getIncorrectAttribute()
+    {
+        return $this->answers()->where('answers.correct', 0)->count();
+    }
+
+    public function getSkippedAttribute()
+    {
+        return $this->exam->questions()->count() - $this->answers()->count();
     }
 
 }

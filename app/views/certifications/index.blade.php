@@ -10,7 +10,7 @@
         <thead>
         <tr>
             <th>Title</th>
-            <th colspan="3">Actions</th>
+            <th colspan="4">Actions</th>
         </tr>
         </thead>
         <tbody>
@@ -19,6 +19,7 @@
                 <td>{{ $certification->title }}</td>
                 <td>{{ link_to_route('certifications.show', 'Details', $certification->id) }}</td>
                 <td>{{ link_to_route('certifications.sessions.index', 'Sessions', $certification->id) }}</td>
+                <td>{{ link_to_route('certifications.exams.index', 'Exams', $certification->id) }}</td>
                 <td>{{ link_to_route('certifications.sessions.create', 'Take Session', $certification->id) }}</td>
             </tr>
         @endforeach

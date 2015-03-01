@@ -20,7 +20,7 @@ class AttemptsController extends \BaseController
     {
         $user_id = \Auth::id();
         $exam_id = \Input::get('exam_id');
-        if (\Attempt::create(['user_id' => $user_id, 'exam_id' => $exam_id])) {
+        if (\Attempt::create(['user_id' => $user_id, 'exam_id' => $exam_id, 'start' => \Carbon\Carbon::now()])) {
             return $this->respondWithSuccess('Successfully Applied for Exam');
         } else {
             return $this->respondWithError('Error While Apply for Exam');

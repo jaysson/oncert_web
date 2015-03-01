@@ -59,7 +59,9 @@
 <!-- Aside Ends-->
 
 <section class="content">
-
+    <header class="top-head container-fluid">
+        {{ Breadcrumbs::render() }}
+    </header>
     <div class="wrapper container-fluid">
         {{ Notification::showAll() }}
         @yield('content')

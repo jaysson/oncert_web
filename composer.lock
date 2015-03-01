@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3ec73170d323cb66beee8adc958c891d",
+    "hash": "92c6790e4146513178557af83e08752c",
     "packages": [
         {
             "name": "anahkiasen/former",
@@ -370,6 +370,58 @@
                 "upload"
             ],
             "time": "2015-02-02 15:16:16"
+        },
+        {
+            "name": "creitive/breadcrumbs",
+            "version": "v1.0.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/CreITive/Laravel-4-Breadcrumbs.git",
+                "reference": "3f5bd46c564705937b1979a0f8810727e2ce882c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/CreITive/Laravel-4-Breadcrumbs/zipball/3f5bd46c564705937b1979a0f8810727e2ce882c",
+                "reference": "3f5bd46c564705937b1979a0f8810727e2ce882c",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "4.x",
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.4",
+                "symfony/css-selector": "~2.0",
+                "symfony/dom-crawler": "~2.0",
+                "way/laravel-test-helpers": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Creitive\\Breadcrumbs\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT License"
+            ],
+            "authors": [
+                {
+                    "name": "Luka Macun",
+                    "email": "luka.macun@creitive.rs"
+                },
+                {
+                    "name": "Miloš Levačić",
+                    "email": "milos.levacic@creitive.rs"
+                }
+            ],
+            "description": "Simple breadcrumbs class",
+            "homepage": "https://github.com/CreITive/Laravel-4-Breadcrumbs",
+            "keywords": [
+                "breadcrumbs",
+                "laravel"
+            ],
+            "time": "2015-02-02 17:41:12"
         },
         {
             "name": "d11wtq/boris",
